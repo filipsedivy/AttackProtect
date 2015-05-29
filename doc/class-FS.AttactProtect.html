@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class FS\AttactProtect</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-FS.html">
+						FS					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-FS.AttactProtect.html">AttactProtect</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-FS.html" title="Summary of FS"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AttactProtect</h1>
+
+
+	<div class="description">
+	<p>Systém pro automatickou ochranu proti útokům na
+aplikaci. Umí ochránit proti XSS a SQL Injection
+automaticky.</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-FS.html">FS</a><br>
+		
+
+				<b>Copyright:</b>
+				Copyright (c) 2013, Filip Šedivý<br>
+				<b>Author:</b>
+				Filip Šedivý<br>
+				<b>Version:</b>
+				1.0<br>
+			<b>Located at</b> <a href="source-class-FS.AttactProtect.html#23-118" title="Go to source code">AttactProtect.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="protect" id="_protect">
+
+		<td class="attributes"><code>
+			 public static
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_protect">#</a>
+		<code><a href="source-class-FS.AttactProtect.html#67-91" title="Go to source code">protect</a>( <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			<p>Ochrana aplikace</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Ochrana aplikace</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$options</var></dt>
+					<dd>Nastavení aplikace</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="input" id="_input">
+
+		<td class="attributes"><code>
+			 protected static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_input">#</a>
+		<code><a href="source-class-FS.AttactProtect.html#94-116" title="Go to source code">input</a>( <span>string <var>$input</var></span>, <span><code><a href="class-FS.AttactProtect.html#SQL">FS\AttactProtect::<b>SQL</b></a></code>|<code><a href="class-FS.AttactProtect.html#Input">FS\AttactProtect::<b>Input</b></a></code>|<code><a href="class-FS.AttactProtect.html#PlainText">FS\AttactProtect::<b>PlainText</b></a></code>|<code><a href="class-FS.AttactProtect.html#All">FS\AttactProtect::<b>All</b></a></code> <var>$type</var></span> )</code>
+
+		<div class="description short">
+			<p>Ochrana proměnné</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Ochrana proměnné</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$input</var></dt>
+					<dd>Vstupní proměnná</dd>
+					<dt><var>$type</var></dt>
+					<dd>Typ ochrany</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>Vrácený ochráněný vstup
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="Input" id="Input">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-FS.AttactProtect.html#35-38" title="Go to source code"><b>Input</b></a>
+			</code>
+
+			<div class="description short">
+				<p>Ochrana vstupu</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Ochrana vstupu</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#Input" class="anchor">#</a>
+				<code><span class="php-quote">'ProtectInput'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="SQL" id="SQL">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-FS.AttactProtect.html#41-44" title="Go to source code"><b>SQL</b></a>
+			</code>
+
+			<div class="description short">
+				<p>Ochrana SQL vstupu</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Ochrana SQL vstupu</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#SQL" class="anchor">#</a>
+				<code><span class="php-quote">'ProtectSQL'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="All" id="All">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-FS.AttactProtect.html#47-50" title="Go to source code"><b>All</b></a>
+			</code>
+
+			<div class="description short">
+				<p>Ochrana vstupu všemi technologie</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Ochrana vstupu všemi technologie</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#All" class="anchor">#</a>
+				<code><span class="php-quote">'ProtectAll'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="PlainText" id="PlainText">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-FS.AttactProtect.html#53-56" title="Go to source code"><b>PlainText</b></a>
+			</code>
+
+			<div class="description short">
+				<p>Vypne ochranu pro proměnnou</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Vypne ochranu pro proměnnou</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#PlainText" class="anchor">#</a>
+				<code><span class="php-quote">'ProtectPlainText'</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
