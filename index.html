@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        AttactProtect vytvořený Filipem Šedivým
+        AttackProtect vytvořený Filipem Šedivým
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
@@ -15,18 +15,18 @@
 
 <body>
     <section class="page-header">
-        <h1 class="project-name">AttactProtect<sup>&reg;</sup></h1>
+        <h1 class="project-name">AttackProtect<sup>&reg;</sup></h1>
         <h2 class="project-tagline">Silná ochrana webových stránek</h2>
-        <a href="https://github.com/filipsedivy/AttactProtect" class="btn">
+        <a href="https://github.com/filipsedivy/AttackProtect" class="btn">
             Zobrazit na GitHubu
         </a>
         <a href="doc/" class="btn">
             Dokumentace
         </a>
-        <a href="https://github.com/filipsedivy/AttactProtect/zipball/master" class="btn">
+        <a href="https://github.com/filipsedivy/AttackProtect/zipball/master" class="btn">
             Stáhnout .zip
         </a>
-        <a href="https://github.com/filipsedivy/AttactProtect/tarball/master" class="btn">
+        <a href="https://github.com/filipsedivy/AttackProtect/tarball/master" class="btn">
             Stáhnout .tar.gz
         </a>
     </section>
@@ -35,7 +35,7 @@
             <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true">
                 <span class="octicon octicon-link"></span>
             </a>
-            Vítejte na stránkách projektu AttactProtect<sup>&reg;</sup>.
+            Vítejte na stránkách projektu AttackProtect<sup>&reg;</sup>.
         </h3>
         <p>
             Tato třída poskytuje <strong>velmi účinnou</strong> proti napadením <strong>XSS</strong> a <strong>SQL Injection</strong>. Jelikož tato třída plošně 
@@ -47,23 +47,23 @@
         </p>
         
         <h4>Základní inicializace</h4>
-        <pre><code><span style='color:#0000ff; font-weight:bold; '>require_once</span> <span style='color:#0000e6; '>'src/AttactProtect.php'</span><span style='color:#0000ff; '>;</span>
-<span style='color:#0000ff; font-weight:bold; '>use</span> FS<span style='color:#0000ff; '>\</span>AttactProtect<span style='color:#0000ff; '>;</span></code></pre>
+        <pre><code><span style='color:#0000ff; font-weight:bold; '>require_once</span> <span style='color:#0000e6; '>'src/AttackProtect.php'</span><span style='color:#0000ff; '>;</span>
+<span style='color:#0000ff; font-weight:bold; '>use</span> FS<span style='color:#0000ff; '>\</span>AttackProtect<span style='color:#0000ff; '>;</span></code></pre>
         
         <h4>Automatická ochrana</h4>
         <p>
             V případě využití automatické ochrany, jsou všechny <strong>requesty</strong> <span style="color:#800080; font-weight:bold; ">$_GET</span> a
             <span style="color:#800080; font-weight:bold; ">$_POST</span> chráněny proti XSS, tedy zanesení HTML kódu do proměnné.
         </p>
-        <pre><code>AttactProtect<span style="color:#0000ff; ">:</span><span style="color:#0000ff; ">:</span>protect<span style="color:#0000ff; ">(</span><span style="color:#0000ff; ">)</span><span style="color:#0000ff; ">;</span></code></pre>
+        <pre><code>AttackProtect<span style="color:#0000ff; ">:</span><span style="color:#0000ff; ">:</span>protect<span style="color:#0000ff; ">(</span><span style="color:#0000ff; ">)</span><span style="color:#0000ff; ">;</span></code></pre>
         
         <h4>Nastavení chování</h4>
         <p>
             Pokud potřebujete nějaké proměnné ochránit proti SQL Injection, tedy napadením databáze, můžete tak učinnit dodatečným nastavením.
         </p>
-        <pre><code>AttactProtect<span style='color:#0000ff; '>:</span><span style='color:#0000ff; '>:</span>protect<span style='color:#0000ff; '>(</span><span style='color:#0000ff; font-weight:bold; '>array</span><span style='color:#0000ff; '>(</span>
-    <span style='color:#0000e6; '>'cislo'</span> <span style='color:#0000ff; '>=</span><span style='color:#0000ff; '>></span> AttactProtect<span style='color:#0000ff; '>:</span><span style='color:#0000ff; '>:</span>SQL<span style='color:#0000ff; '>,</span>
-    <span style='color:#0000e6; '>'text'</span> <span style='color:#0000ff; '>=</span><span style='color:#0000ff; '>></span> AttactProtect<span style='color:#0000ff; '>:</span><span style='color:#0000ff; '>:</span>PlainText
+        <pre><code>AttackProtect<span style='color:#0000ff; '>:</span><span style='color:#0000ff; '>:</span>protect<span style='color:#0000ff; '>(</span><span style='color:#0000ff; font-weight:bold; '>array</span><span style='color:#0000ff; '>(</span>
+    <span style='color:#0000e6; '>'cislo'</span> <span style='color:#0000ff; '>=</span><span style='color:#0000ff; '>></span> AttackProtect<span style='color:#0000ff; '>:</span><span style='color:#0000ff; '>:</span>SQL<span style='color:#0000ff; '>,</span>
+    <span style='color:#0000e6; '>'text'</span> <span style='color:#0000ff; '>=</span><span style='color:#0000ff; '>></span> AttackProtect<span style='color:#0000ff; '>:</span><span style='color:#0000ff; '>:</span>PlainText
 <span style='color:#0000ff; '>)</span><span style='color:#0000ff; '>)</span><span style='color:#0000ff; '>;</span></code></pre>
         <p>
             Nyní tedy, proměnná <strong>cislo</strong> bude chráněná proti SQL Injection, zatím u proměnné <strong>text</strong> byla ochrana úplně vypnuta a u ostatních proměnných bude dále ochrana proti XSS.
@@ -80,26 +80,26 @@
             
             <tbody>
                 <tr>
-                    <td>AttactProtect::<span style="color:#0000e6; ">SQL</span></td>
+                    <td>AttackProtect::<span style="color:#0000e6; ">SQL</span></td>
                     <td>Ochrana proti SQL Injection</td>
                 </tr>
                 <tr>
-                    <td>AttactProtect::<span style="color:#0000e6; ">Input</span></td>
+                    <td>AttackProtect::<span style="color:#0000e6; ">Input</span></td>
                     <td>Ochrana proti XSS</td>
                 </tr>
                 <tr>
-                    <td>AttactProtect::<span style="color:#0000e6; ">All</span></td>
+                    <td>AttackProtect::<span style="color:#0000e6; ">All</span></td>
                     <td>Ochrana proti SQL Injection a XSS zároveň</td>
                 </tr>
                 <tr>
-                    <td>AttactProtect::<span style="color:#0000e6; ">PlainText</span></td>
+                    <td>AttackProtect::<span style="color:#0000e6; ">PlainText</span></td>
                     <td>Vypnutí ochrany</td>
                 </tr>
             </tbody>
         </table>
         
         <h4>Testy</h4>
-        AttactProtect<sup>&reg;</sup> obstál v následujících testech (<i>nebyl prolomen</i>):
+        AttackProtect<sup>&reg;</sup> obstál v následujících testech (<i>nebyl prolomen</i>):
 
         <table>
             <tbody>
@@ -112,7 +112,7 @@
         
         <footer class="site-footer">
             <span class="site-footer-owner">
-                <a href="https://github.com/filipsedivy/AttactProtect">AttactProtect<sup>&reg;</sup></a>
+                <a href="https://github.com/filipsedivy/AttackProtect">AttackProtect<sup>&reg;</sup></a>
                 vyvíjí 
                 <a href="https://github.com/filipsedivy">Filip Šedivý</a>.
             </span>
