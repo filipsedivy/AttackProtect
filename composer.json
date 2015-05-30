@@ -1,0 +1,22 @@
+{
+    "name": "filipsedivy/AttackProtect",
+    "description": "Effective protection website",
+    "homepage": "http://filipsedivy.github.io/AttackProtect/",
+    "license": "GNU GPL 3",
+    "keywords": ["XSS", "SQL Injection", "protect", "website"],
+    "type": "library",
+    "support": {
+        "issues": "https://github.com/filipsedivy/AttackProtect/issues"
+    },
+    "authors": [
+        {
+            "name": "Filip Šedivý",
+            "email": "mail@filipsedivy.cz",
+            "homepage": "http://filipsedivy.cz",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=4.*"
+    }
+}
