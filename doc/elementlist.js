@@ -1,3 +1,3 @@
 
 var ApiGen = ApiGen || {};
-ApiGen.elements = [["c","FS\\AttactProtect"]];
+ApiGen.elements = [["c","FS\\AttackProtect"]];
