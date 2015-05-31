@@ -45,15 +45,29 @@ class AttackProtect{
     
     
     /**
-     * Ochrana vstupu všemi technologie
+     * Ochrana vstupu proti SQL Injection a XSS
      */
     const All = 'ProtectAll';
     
     
     /**
-     * Vypne ochranu pro proměnnou
+     * Vypne ochranu
+     * 
+     * @deprecated since version 1.1
      */
     const PlainText = 'ProtectPlainText';
+    
+    
+    /**
+     * Vypne ochranu
+     */
+    const Disable = 'ProtectDisable';
+    
+    
+    /**
+     * Přetypuje ochranu na číslo
+     */
+    const Number = 'ToNumber';
     
     
     /**
@@ -65,6 +79,14 @@ class AttackProtect{
     
     
     /**
+     * Výchozí ochrana
+     * 
+     * @static
+     */
+    public static $defaultProtect = self::Input;
+    
+    
+    /**
      * Ochrana aplikace
      * 
      * @static
@@ -73,18 +95,21 @@ class AttackProtect{
     public static function protect($options = array()){
         // Předání globálních proměnných do statických
         self::$global = array(
-            'post' => $_POST,
-            'get' => $_GET
+            'post' => filter_input_array(INPUT_POST),
+            'get' => filter_input_array(INPUT_GET)
         );
         
         // Iterace statických proměnných
         foreach(self::$global as $type => $globalValues){
-            foreach($globalValues as $name => $value){
-                $protection = array_key_exists($name, $options) ? $options[$name] : self::Input;
-                if($type == 'get'){
-                    $_GET[$name] = self::input($value, $protection);
-                }elseif($type == 'post'){
-                    $_POST[$name] = self::input($value, $protection);
+            if(!is_null($globalValues)){
+                foreach($globalValues as $name => $value){
+                    $protection = array_key_exists($name, $options) ? $options[$name] : self::$defaultProtect;
+                    $output = self::input($value, $protection);
+                    if($type == 'get'){
+                        $_GET[$name] = $output;
+                    }elseif($type == 'post'){
+                        $_POST[$name] = $output;
+                    }
                 }
             }
         }
@@ -95,23 +120,33 @@ class AttackProtect{
      * Ochrana proměnné
      * 
      * @static
-     * @param string $input Vstupní proměnná
-     * @param AttackProtect::SQL|AttackProtect::Input|AttackProtect::PlainText|AttackProtect::All $type Typ ochrany
+     * @param string $input Vstupní text
+     * @param mixed $option Nastavení
      * 
      * @return string Vrácený ochráněný vstup
      */
-    protected static function input($input, $type){
-        if($type == self::SQL){
-            $search = array("\\",  "\x00", "\n",  "\r",  "'",  '"', "\x1a");
-            $replace = array("\\\\","\\0","\\n", "\\r", "\'", '\"', "\\Z");
-            return str_replace($search, $replace, $input);
-        }elseif($type == self::Input){
-            return htmlspecialchars($input);
-        }elseif($type == self::PlainText){
-            return $input;
-        }elseif($type == self::All){
-            $return = self::input($input, self::SQL);
-            return self::input($return, self::Input);
+    protected static function input($input, $option){
+        if(is_string($option)){
+            if($option == self::SQL){
+                $search = array("\\",  "\x00", "\n",  "\r",  "'",  '"', "\x1a");
+                $replace = array("\\\\","\\0","\\n", "\\r", "\'", '\"', "\\Z");
+                return str_replace($search, $replace, $input);
+            }elseif($option == self::Input){
+                return htmlspecialchars($input);
+            }elseif($option == self::PlainText || $option == self::Disable){
+                return $input;
+            }elseif($option == self::All){
+                $return = self::input($input, self::SQL);
+                return self::input($return, self::Input);
+            }elseif($option == self::Number){
+                return (real) str_replace(',', '.', $input);;
+            }
+        }elseif(is_array($option)){
+            $return = $input;
+            foreach($option as $key){
+                $return = self::input($return, $key);
+            }
+            return $return;
         }
     }
     
