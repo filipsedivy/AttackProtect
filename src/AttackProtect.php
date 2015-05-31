@@ -27,25 +27,33 @@ namespace FS;
  * 
  * @version 1.0
  * @author Filip Šedivý
- * @copyright Copyright (c) 2013, Filip Šedivý
+ * @copyright Copyright (c) 2013 - 2015, Filip Šedivý
+ * @access public
+ * @see http://filipsedivy.github.io/AttackProtect/
  */
 class AttackProtect{
     
     
     /**
      * Ochrana vstupu
+     * 
+     * @var string
      */
     const Input = 'ProtectInput';
     
     
     /**
      * Ochrana SQL vstupu
+     * 
+     * @var string
      */
     const SQL = 'ProtectSQL';
     
     
     /**
      * Ochrana vstupu proti SQL Injection a XSS
+     * 
+     * @var string
      */
     const All = 'ProtectAll';
     
@@ -54,18 +62,24 @@ class AttackProtect{
      * Vypne ochranu
      * 
      * @deprecated since version 1.1
+     * @var string
+     * @access public
      */
     const PlainText = 'ProtectPlainText';
     
     
     /**
      * Vypne ochranu
+     * 
+     * @var string
      */
     const Disable = 'ProtectDisable';
     
     
     /**
      * Přetypuje ochranu na číslo
+     * 
+     * @var string
      */
     const Number = 'ToNumber';
     
@@ -74,6 +88,7 @@ class AttackProtect{
      * Globání pole hodnot
      * 
      * @static
+     * @access protected
      */
     protected static $global;
     
@@ -82,6 +97,7 @@ class AttackProtect{
      * Výchozí ochrana
      * 
      * @static
+     * @access public
      */
     public static $defaultProtect = self::Input;
     
@@ -91,6 +107,7 @@ class AttackProtect{
      * 
      * @static
      * @param array $options Nastavení aplikace
+     * @access public
      */
     public static function protect($options = array()){
         // Předání globálních proměnných do statických
@@ -122,6 +139,7 @@ class AttackProtect{
      * @static
      * @param string $input Vstupní text
      * @param mixed $option Nastavení
+     * @access protected
      * 
      * @return string Vrácený ochráněný vstup
      */
@@ -139,7 +157,13 @@ class AttackProtect{
                 $return = self::input($input, self::SQL);
                 return self::input($return, self::Input);
             }elseif($option == self::Number){
-                return (real) str_replace(',', '.', $input);;
+                if(filter_var($input, FILTER_VALIDATE_INT)){
+                    return (int) $input;
+                }elseif(filter_var($input, FILTER_VALIDATE_FLOAT)){
+                    return (real) $input;
+                }else{
+                    return null;
+                }
             }
         }elseif(is_array($option)){
             $return = $input;
@@ -149,5 +173,4 @@ class AttackProtect{
             return $return;
         }
     }
-    
 }
