@@ -75,7 +75,7 @@ class AttackProtect{
      * 
      * @static
      */
-    private static $global;
+    protected static $global;
     
     
     /**
