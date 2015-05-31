@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class FS\AttackProtect</title>
+	<title>Class FS\AttackProtect | v1.0</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -65,6 +65,19 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+				<li>
+					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+						<span>Deprecated</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+						<span>Todo</span>
+					</a>
+				</li>
 		</ul>
 		<ul>
 		</ul>
@@ -95,12 +108,14 @@ automaticky.</p>
 		
 
 				<b>Copyright:</b>
-				Copyright (c) 2013, Filip Šedivý<br>
+				Copyright (c) 2013 - 2015, Filip Šedivý<br>
 				<b>Author:</b>
 				Filip Šedivý<br>
 				<b>Version:</b>
 				1.0<br>
-			<b>Located at</b> <a href="source-class-FS.AttackProtect.html#23-118" title="Go to source code">src/AttackProtect.php</a>
+				<b>See:</b>
+				http://filipsedivy.github.io/AttackProtect/<br>
+			<b>Located at</b> <a href="source-class-FS.AttackProtect.html#23-176" title="Go to source code">AttackProtect.php</a>
 		<br>
 	</div>
 
@@ -120,7 +135,7 @@ automaticky.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_protect">#</a>
-		<code><a href="source-class-FS.AttackProtect.html#67-91" title="Go to source code">protect</a>( <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<code><a href="source-class-FS.AttackProtect.html#105-133" title="Go to source code">protect</a>( <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
 			<p>Ochrana aplikace</p>
@@ -155,7 +170,7 @@ automaticky.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_input">#</a>
-		<code><a href="source-class-FS.AttackProtect.html#94-116" title="Go to source code">input</a>( <span>string <var>$input</var></span>, <span><code><a href="class-FS.AttackProtect.html#SQL">FS\AttackProtect::<b>SQL</b></a></code>|<code><a href="class-FS.AttackProtect.html#Input">FS\AttackProtect::<b>Input</b></a></code>|<code><a href="class-FS.AttackProtect.html#PlainText">FS\AttackProtect::<b>PlainText</b></a></code>|<code><a href="class-FS.AttackProtect.html#All">FS\AttackProtect::<b>All</b></a></code> <var>$type</var></span> )</code>
+		<code><a href="source-class-FS.AttackProtect.html#136-175" title="Go to source code">input</a>( <span>string <var>$input</var></span>, <span>mixed <var>$option</var></span> )</code>
 
 		<div class="description short">
 			<p>Ochrana proměnné</p>
@@ -168,9 +183,9 @@ automaticky.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$input</var></dt>
-					<dd>Vstupní proměnná</dd>
-					<dt><var>$type</var></dt>
-					<dd>Typ ochrany</dd>
+					<dd>Vstupní text</dd>
+					<dt><var>$option</var></dt>
+					<dd>Nastavení</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -200,7 +215,7 @@ automaticky.</p>
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-FS.AttackProtect.html#35-38" title="Go to source code"><b>Input</b></a>
+				<a href="source-class-FS.AttackProtect.html#37-42" title="Go to source code"><b>Input</b></a>
 			</code>
 
 			<div class="description short">
@@ -224,7 +239,7 @@ automaticky.</p>
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-FS.AttackProtect.html#41-44" title="Go to source code"><b>SQL</b></a>
+				<a href="source-class-FS.AttackProtect.html#45-50" title="Go to source code"><b>SQL</b></a>
 			</code>
 
 			<div class="description short">
@@ -248,15 +263,15 @@ automaticky.</p>
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-FS.AttackProtect.html#47-50" title="Go to source code"><b>All</b></a>
+				<a href="source-class-FS.AttackProtect.html#53-58" title="Go to source code"><b>All</b></a>
 			</code>
 
 			<div class="description short">
-				<p>Ochrana vstupu všemi technologie</p>
+				<p>Ochrana vstupu proti SQL Injection a XSS</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Ochrana vstupu všemi technologie</p>
+				<p>Ochrana vstupu proti SQL Injection a XSS</p>
 
 			</div>
 		</td>
@@ -272,22 +287,131 @@ automaticky.</p>
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-FS.AttackProtect.html#53-56" title="Go to source code"><b>PlainText</b></a>
+				<a href="source-class-FS.AttackProtect.html#61-68" title="Go to source code"><b>PlainText</b></a>
 			</code>
 
 			<div class="description short">
-				<p>Vypne ochranu pro proměnnou</p>
+				<p>Vypne ochranu</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Vypne ochranu pro proměnnou</p>
+				<p>Vypne ochranu</p>
 
+					<h4>Deprecated</h4>
+					<div class="list">
+							since version 1.1<br>
+					</div>
 			</div>
 		</td>
 		<td class="value">
 			<div>
 				<a href="#PlainText" class="anchor">#</a>
 				<code><span class="php-quote">'ProtectPlainText'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="Disable" id="Disable">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-FS.AttackProtect.html#71-76" title="Go to source code"><b>Disable</b></a>
+			</code>
+
+			<div class="description short">
+				<p>Vypne ochranu</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Vypne ochranu</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#Disable" class="anchor">#</a>
+				<code><span class="php-quote">'ProtectDisable'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="Number" id="Number">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-FS.AttackProtect.html#79-84" title="Go to source code"><b>Number</b></a>
+			</code>
+
+			<div class="description short">
+				<p>Přetypuje ochranu na číslo</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Přetypuje ochranu na číslo</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#Number" class="anchor">#</a>
+				<code><span class="php-quote">'ToNumber'</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="global" id="$global">
+		<td class="attributes"><code>
+			protected static 
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-FS.AttackProtect.html#87-93" title="Go to source code"><var>$global</var></a>
+
+			<div class="description short">
+				<p>Globání pole hodnot</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Globání pole hodnot</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$global" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="defaultProtect" id="$defaultProtect">
+		<td class="attributes"><code>
+			public static 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-FS.AttackProtect.html#96-102" title="Go to source code"><var>$defaultProtect</var></a>
+
+			<div class="description short">
+				<p>Výchozí ochrana</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Výchozí ochrana</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$defaultProtect" class="anchor">#</a>
+				<code><code><a href="class-FS.AttackProtect.html#Input">FS\AttackProtect::<b>Input</b></a></code></code>
 			</div>
 		</td>
 	</tr>
@@ -298,14 +422,10 @@ automaticky.</p>
 
 
 
-
-
-
-
 </div>
 
 	<div id="footer">
-		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+		v1.0 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
