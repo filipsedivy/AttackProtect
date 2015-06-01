@@ -131,6 +131,22 @@ class AttackProtect{
             }
         }
     }
+   
+    
+    /**
+     * Ochrana vstupního textu 
+     * 
+     * @static
+     * @param string $input Vstupní text
+     * @param string|array $options Nastavení
+     * @access public
+     * 
+     * @return string Ošetřený řetězec
+     */
+    public static function _($input, $options){
+        return self::protect($input, $options);
+    }
+    
     
     
     /**
@@ -138,7 +154,7 @@ class AttackProtect{
      * 
      * @static
      * @param string $input Vstupní text
-     * @param mixed $option Nastavení
+     * @param string|array $option Nastavení
      * @access protected
      * 
      * @return string Vrácený ochráněný vstup
