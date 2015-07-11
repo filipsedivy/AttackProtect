@@ -7,7 +7,6 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="false"
-         bootstrap="./tests/Doctrine/Tests/TestInit.php"
 >
     <php>    
     </php>
