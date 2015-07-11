@@ -144,7 +144,7 @@ class AttackProtect{
      * @return string Ošetřený řetězec
      */
     public static function _($input, $options){
-        return self::protect($input, $options);
+        return self::input($input, $options);
     }
     
     
