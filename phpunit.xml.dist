@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>´
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false"
+         bootstrap="./tests/Doctrine/Tests/TestInit.php"
+>
+    <php>    
+    </php>
+
+    <testsuites>
+        <testsuite name="AttackProtect Test">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
