@@ -21,13 +21,13 @@ namespace FS;
 
 
 /**
- * Systém pro automatickou ochranu proti útokům na 
- * aplikaci. Umí ochránit proti XSS a SQL Injection
- * automaticky.
+ * System for automatic protection against attacks on the 
+ * application. It can protect against XSS and SQL Injection
+ * automatically.
  * 
  * @version 1.0
- * @author Filip Šedivý
- * @copyright Copyright (c) 2013 - 2015, Filip Šedivý
+ * @author Filip Sedivy
+ * @copyright Copyright (c) 2013 - 2015, Filip Sedivy
  * @access public
  * @see http://filipsedivy.github.io/AttackProtect/
  */
@@ -35,7 +35,7 @@ class AttackProtect{
     
     
     /**
-     * Ochrana vstupu
+     * Protect input
      * 
      * @var string
      */
@@ -43,7 +43,7 @@ class AttackProtect{
     
     
     /**
-     * Ochrana SQL vstupu
+     * Protect SQL input
      * 
      * @var string
      */
@@ -51,7 +51,7 @@ class AttackProtect{
     
     
     /**
-     * Ochrana vstupu proti SQL Injection a XSS
+     * Protect input against SQL Injection and XSS
      * 
      * @var string
      */
@@ -59,7 +59,7 @@ class AttackProtect{
     
     
     /**
-     * Vypne ochranu
+     * Disable protect
      * 
      * @deprecated since version 1.1
      * @var string
@@ -69,7 +69,7 @@ class AttackProtect{
     
     
     /**
-     * Vypne ochranu
+     * Disable protect
      * 
      * @var string
      */
@@ -77,7 +77,7 @@ class AttackProtect{
     
     
     /**
-     * Přetypuje ochranu na číslo
+     * Cast protection on number 
      * 
      * @var string
      */
@@ -85,7 +85,7 @@ class AttackProtect{
     
     
     /**
-     * Globání pole hodnot
+     * Global array values
      * 
      * @static
      * @access protected
@@ -94,7 +94,7 @@ class AttackProtect{
     
     
     /**
-     * Výchozí ochrana
+     * Default protection
      * 
      * @static
      * @access public
@@ -103,20 +103,20 @@ class AttackProtect{
     
     
     /**
-     * Ochrana aplikace
+     * Appliaction protection
      * 
      * @static
-     * @param array $options Nastavení aplikace
+     * @param array $options Setting appliaction
      * @access public
      */
     public static function protect($options = array()){
-        // Předání globálních proměnných do statických
+        // Transmission global variables to static
         self::$global = array(
             'post' => filter_input_array(INPUT_POST),
             'get' => filter_input_array(INPUT_GET)
         );
         
-        // Iterace statických proměnných
+        // Iterating static variable
         foreach(self::$global as $type => $globalValues){
             if(!is_null($globalValues)){
                 foreach($globalValues as $name => $value){
@@ -134,14 +134,14 @@ class AttackProtect{
    
     
     /**
-     * Ochrana vstupního textu 
+     * Protection input string
      * 
      * @static
-     * @param string $input Vstupní text
-     * @param string|array $options Nastavení
+     * @param string $input Input string
+     * @param string|array $options Setting
      * @access public
      * 
-     * @return string Ošetřený řetězec
+     * @return string Protect string
      */
     public static function _($input, $options){
         return self::input($input, $options);
@@ -150,14 +150,14 @@ class AttackProtect{
     
     
     /**
-     * Ochrana proměnné
+     * Protect string
      * 
      * @static
-     * @param string $input Vstupní text
-     * @param string|array $option Nastavení
+     * @param string $input Input string
+     * @param string|array $option Setting
      * @access protected
      * 
-     * @return string Vrácený ochráněný vstup
+     * @return string Protect string
      */
     protected static function input($input, $option){
         if(is_string($option)){
