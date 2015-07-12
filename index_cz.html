@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="cs-cz">
 
 <head>
     <meta charset="UTF-8">
     <title>
-        AttackProtect created by Filip Sedivy
+        AttackProtect vytvořený Filipem Šedivým
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
@@ -16,22 +16,22 @@
 <body>
     <section class="page-header">
         <h1 class="project-name">AttackProtect<sup>&reg;</sup></h1>
-        <h2 class="project-tagline">Strong protect website</h2>
+        <h2 class="project-tagline">Silná ochrana webových stránek</h2>
         <a href="https://github.com/filipsedivy/AttackProtect" class="btn">
-            Show on GitHub
+            Zobrazit na GitHubu
         </a>
         <a href="doc/" class="btn">
-            Documentation
+            Dokumentace
         </a>
         <a href="https://github.com/filipsedivy/AttackProtect/zipball/master" class="btn">
-            Download .zip
+            Stáhnout .zip
         </a>
         <a href="https://github.com/filipsedivy/AttackProtect/tarball/master" class="btn">
-            Download .tar.gz
+            Stáhnout .tar.gz
         </a>
         <br>
-        <a href="index_cz.html" class="btn">
-            Czech
+        <a href="index.html" class="btn">
+            English
         </a>
     </section>
     <section class="main-content">
@@ -39,105 +39,106 @@
             <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true">
                 <span class="octicon octicon-link"></span>
             </a>
-            Welcome on page project AttackProtect<sup>&reg;</sup>.
+            Vítejte na stránkách projektu AttackProtect<sup>&reg;</sup>.
         </h3>
         <p>
-            This class provides a <strong>very effective</strong> against <strong>XSS</strong> and <strong>SQL Injection</strong> attacks. 
-            Since this class protects global variables <span style="color:#800080; font-weight:bold; ">$_GET</span> and <span style="color:#800080; font-weight:bold; ">$_POST</span>,
-            so it is not necessary to further protect these variables in the code. After the initialization of protection, just as well as access to global variables using
+            Tato třída poskytuje <strong>velmi účinnou</strong> proti napadením <strong>XSS</strong> a <strong>SQL Injection</strong>. Jelikož tato třída plošně 
+            chrání globální proměnné <span style="color:#800080; font-weight:bold; ">$_GET</span> a <span style="color:#800080; font-weight:bold; ">$_POST</span>,
+            tak že není nutné tyto proměnné chránit dále v kódu. Po inicilizaci protekce, stačí jen přistupovat stejně jako ke globálním proměnným tedy pomocí 
             <span style="color:#800080; font-weight:bold; ">$_GET</span><span style="color:#0000ff; ">[</span><span style="color:#0000e6; ">'test'</span><span style="color:#0000ff; ">]</span>
-            or <span style="color:#800080; font-weight:bold; ">$_POST</span><span style="color:#0000ff; ">[</span><span style="color:#0000e6; ">'test'</span><span style="color:#0000ff; ">]</span>
-            where these variables are already protected.
+            nebo <span style="color:#800080; font-weight:bold; ">$_POST</span><span style="color:#0000ff; ">[</span><span style="color:#0000e6; ">'test'</span><span style="color:#0000ff; ">]</span>
+            kde tyto proměnné již jsou ochráněny.
         </p>
         
-        <h4 id="zakladni-inicializace">Basic initialization</h4>
+        <h4 id="zakladni-inicializace">Základní inicializace</h4>
         <pre><code><span style='color:#0000ff; font-weight:bold; '>require_once</span> <span style='color:#0000e6; '>'src/AttackProtect.php'</span><span style='color:#0000ff; '>;</span>
 <span style='color:#0000ff; font-weight:bold; '>use</span> FS<span style='color:#0000ff; '>\</span>AttackProtect<span style='color:#0000ff; '>;</span></code></pre>
         
-        <h4 id="automaticka-ochrana">Automatically protect</h4>
+        <h4 id="automaticka-ochrana">Automatická ochrana</h4>
         <p>
-            In the case of the use of automatic protection, are all <strong>requests</strong> <span style="color:#800080; font-weight:bold; ">$_GET</span> and
-            <span style="color:#800080; font-weight:bold; ">$_POST</span> protected against XSS, thus entering the HTML code in a variable.
+            V případě využití automatické ochrany, jsou všechny <strong>requesty</strong> <span style="color:#800080; font-weight:bold; ">$_GET</span> a
+            <span style="color:#800080; font-weight:bold; ">$_POST</span> chráněny proti XSS, tedy zanesení HTML kódu do proměnné.
         </p>
         <pre><code>AttackProtect<span style="color:#0000ff; ">:</span><span style="color:#0000ff; ">:</span>protect<span style="color:#0000ff; ">(</span><span style="color:#0000ff; ">)</span><span style="color:#0000ff; ">;</span></code></pre>
         
-        <h4 id="nastaveni-chovani">Advanced settings</h4>
+        <h4 id="nastaveni-chovani">Nastavení chování</h4>
         <p>
-            If you need a variable to protect against SQL Injection attacks, i.e., a database, you can do additional settings.
+            Pokud potřebujete nějaké proměnné ochránit proti SQL Injection, tedy napadením databáze, můžete tak učinnit dodatečným nastavením.
         </p>
         <pre><code>AttackProtect<span style='color:#0000ff; '>:</span><span style='color:#0000ff; '>:</span>protect<span style='color:#0000ff; '>(</span><span style='color:#0000ff; font-weight:bold; '>array</span><span style='color:#0000ff; '>(</span>
-    <span style='color:#0000e6; '>'number'</span> <span style='color:#0000ff; '>=</span><span style='color:#0000ff; '>></span> AttackProtect<span style='color:#0000ff; '>:</span><span style='color:#0000ff; '>:</span>SQL<span style='color:#0000ff; '>,</span>
-    <span style='color:#0000e6; '>'string'</span> <span style='color:#0000ff; '>=</span><span style='color:#0000ff; '>></span> AttackProtect<span style='color:#0000ff; '>:</span><span style='color:#0000ff; '>:</span>Disable
+    <span style='color:#0000e6; '>'cislo'</span> <span style='color:#0000ff; '>=</span><span style='color:#0000ff; '>></span> AttackProtect<span style='color:#0000ff; '>:</span><span style='color:#0000ff; '>:</span>SQL<span style='color:#0000ff; '>,</span>
+    <span style='color:#0000e6; '>'text'</span> <span style='color:#0000ff; '>=</span><span style='color:#0000ff; '>></span> AttackProtect<span style='color:#0000ff; '>:</span><span style='color:#0000ff; '>:</span>Disable
 <span style='color:#0000ff; '>)</span><span style='color:#0000ff; '>)</span><span style='color:#0000ff; '>;</span></code></pre>
         <p>
-            Now, therefore, the variable <strong>number</strong> will be protected against SQL Injection, so far for the variable <strong>string</strong> was completely disabled and protection for the other variables will be further protection against XSS.
-            We can also set up for one variable and more protections, therefore, if we want to protect it against the Insert SQL Injection and also cast it to a number we can make use of the field.
+            Nyní tedy, proměnná <strong>cislo</strong> bude chráněná proti SQL Injection, zatím u proměnné <strong>text</strong> byla ochrana úplně vypnuta a u ostatních proměnných bude dále ochrana proti XSS.
+            Dále můžeme pro jednu proměnnou nastavit i více ochran, tedy pokud jej chceme ochránit proti vložení SQL Injection a zároveň přetypovat jej na číslo můžeme učinit pomocí pole.
         </p>
         <pre><code>AttackProtect<span style="color:#0000ff; ">:</span><span style="color:#0000ff; ">:</span>protect<span style="color:#0000ff; ">(</span><span style="color:#0000ff; font-weight:bold; ">array</span><span style="color:#0000ff; ">(</span>
     <span style="color:#0000e6; ">'text'</span> <span style="color:#0000ff; ">=</span><span style="color:#0000ff; ">&gt;</span> <span style="color:#0000ff; ">[</span>AttackProtect<span style="color:#0000ff; ">:</span><span style="color:#0000ff; ">:</span>Input<span style="color:#0000ff; ">,</span> AttackProtect<span style="color:#0000ff; ">:</span><span style="color:#0000ff; ">:</span>Number<span style="color:#0000ff; ">]</span>
 <span style="color:#0000ff; ">)</span><span style="color:#0000ff; ">)</span><span style="color:#0000ff; ">;</span>
 </code></pre>
         
-        <h4 id="vychozi-chovani-aplikace">Default application setting</h4>
+        <h4 id="vychozi-chovani-aplikace">Výchozí chování aplikace</h4>
         <p>
-            In the event that it is necessary to influence the State of the application, it is possible to override the default behavior. It is possible to influence by using thestatic variables.
+            V případě že je nutné ovlivnit nějaký stav aplikace, je možné přepsat jeho výchozí chování. Je možné jej ovlivnit pomocí
+            statických proměnných.
         </p>
         <pre><code>AttackProtect<span style="color:#0000ff; ">:</span><span style="color:#0000ff; ">:</span><span style="color:#800080; font-weight:bold; ">$defaultProtect</span> <span style="color:#0000ff; ">=</span> AttackProtect<span style="color:#0000ff; ">:</span><span style="color:#0000ff; ">:</span>SQL<span style="color:#0000ff; ">;</span></code></pre>
-        <p>These settings override the default privacy settings for all of the variables that are not particularly defined from XSS on SQL Injection. We can also use the field for setting, then combine the more settings at the same time.</p>
+        <p>Tímto nastavením bylo přepsáno výchozí nastavení ochrany pro všechny proměnné které nejsou zvláště definované z XSS na SQL Injection. Můžeme i použít pole pro nastavení, tedy kombinovat více nastavení zároveň.</p>
         
-        <h4 id="vychozi-nastaveni">Default setting</h4>
+        <h4 id="vychozi-nastaveni">Výchozí nastavení</h4>
         <table>
             <thead>
                 <tr>
-                    <th>Variable</th>
-                    <th>Description</th>
-                    <th>Default value</th>
+                    <th>Proměnná</th>
+                    <th>Popis</th>
+                    <th>Výchozí hodnota</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><span style="color:#800080">$defaultProtect</span></td>
-                    <td>Default protect for none defined items in list</td>
+                    <td>Výchozí ochrana pro nedefinované položky v seznamu</td>
                     <td>AttackProtect<span style="color:#0000ff; ">:</span><span style="color:#0000ff; ">:</span>SQL</td>
                 </tr>
             </tbody>
         </table>
         
-        <h4 id="typy-ochran">Types protect</h4>
+        <h4 id="typy-ochran">Typy ochran</h4>
         <table>
             <thead>
                 <tr>
-                    <th>Protect</th>
-                    <th>Description</th>
+                    <th>Ochrana</th>
+                    <th>Popis</th>
                 </tr>
             </thead>
             
             <tbody>
                 <tr>
                     <td>AttackProtect::<span style="color:#0000e6; ">SQL</span></td>
-                    <td>Protect against SQL Injection</td>
+                    <td>Ochrana proti SQL Injection</td>
                 </tr>
                 <tr>
                     <td>AttackProtect::<span style="color:#0000e6; ">Input</span></td>
-                    <td>Protect against XSS</td>
+                    <td>Ochrana proti XSS</td>
                 </tr>
                 <tr>
                     <td>AttackProtect::<span style="color:#0000e6; ">All</span></td>
-                    <td>Protect against SQL Injection and XSS</td>
+                    <td>Ochrana proti SQL Injection a XSS zároveň</td>
                 </tr>
                 <tr>
                     <td>AttackProtect::<span style="color:#0000e6; ">Disable</span></td>
-                    <td>Disable protection</td>
+                    <td>Vypnutí ochrany</td>
                 </tr>
                 <tr>
                     <td>AttackProtect::<span style="color:#0000e6; ">Number</span></td>
-                    <td>If the entry is the number of the cast it otherwise the output is <span style="color:#0000e6; font-weight: bold">null</span></td>
+                    <td>Pokud vstupem je číslo přetypuje jej jinak výstupem je <span style="color:#0000e6; font-weight: bold">null</span></td>
                 </tr>
             </tbody>
         </table>
         
-        <h4 id="testy">Tests</h4>
-        AttackProtect<sup>&reg;</sup> passed the following tests (<i>not hacked</i>):
+        <h4 id="testy">Testy</h4>
+        AttackProtect<sup>&reg;</sup> obstál v následujících testech (<i>nebyl prolomen</i>):
 
         <table>
             <tbody>
@@ -148,22 +149,22 @@
             </tbody>
         </table>
         
-        <h4 id="feature-map">RoadMap</h4>
+        <h4 id="feature-map">Feature map aneb co se chystá</h4>
         <ul>
-            <li>Haul raw variables using the class</li>
+            <li>Vytažení neupravené proměnné pomocí třídy</li>
         </ul>
         
         <footer class="site-footer">
             <span class="site-footer-owner">
                 <a href="https://github.com/filipsedivy/AttackProtect">AttackProtect<sup>&reg;</sup></a>
-                developed by 
-                <a href="https://github.com/filipsedivy">Filip Sedivy</a>.
+                vyvíjí 
+                <a href="https://github.com/filipsedivy">Filip Šedivý</a>.
             </span>
-            <span class="site-footer-credits">         
-                This page is created by using the
-                <a href="https://pages.github.com">GitHub Pages</a> that uses the 
+            <span class="site-footer-credits">
+                Tato stránka je vytvořena pomocí 
+                <a href="https://pages.github.com">GitHub Pages</a> která využívá 
                 <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a>
-                created <a href="https://twitter.com/jasonlong">Jason Long</a>.
+                vytvořenou <a href="https://twitter.com/jasonlong">Jason Long</a>.
             </span>
         </footer>
     </section>
